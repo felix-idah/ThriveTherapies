@@ -37,7 +37,6 @@ export default defineConfig({
     icon({ iconDir: "./src/assets/icons" }),
     partytown({ config: { forward: ["dataLayer.push"] } }),
     sitemapIntegration(),
-    astroFont(),
   ],
   vite: {
     build: {
@@ -55,6 +54,7 @@ export default defineConfig({
       force: true,
     },
 
+    
     resolve: {
       alias: {
         "@/assets": "/src/assets",
@@ -71,14 +71,15 @@ export default defineConfig({
         "@/types": "/src/types",
         "@/utils": "/src/utils",
         "@/config": "/src/config",
-        "@/paraglide": "/src/paraglide",
         "@/scripts": "/src/scripts",
       },
     },
-
     plugins: [
-      tailwindcss()
-],
+      tailwindcss() as any,
+      astroFont() as any,
+    ],
+
+
   },
   output: "static",
 });

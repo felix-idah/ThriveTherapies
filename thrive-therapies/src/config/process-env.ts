@@ -3,12 +3,12 @@ import { envField } from 'astro/config';
 
 import dotenv from 'dotenv';
 
-import { nodeEnvValues, processEnvSchema } from '../schemas/config';
-import { prettyPrintObject } from '../utils/log';
-import { getHostnameFromUrl } from '../utils/urls';
-import { validateData } from '../utils/validation';
+import { nodeEnvValues, processEnvSchema } from '../schemas/config.js';
+import { prettyPrintObject } from '../utils/system/log.js';
+import { getHostnameFromUrl } from '../utils/routing/urls.js';
+import { validateData } from '../utils/data/validation.js';
 
-import type { ProcessEnvType } from '../types/config';
+import type { ProcessEnvType } from '@/types/config';
 
 /*------------------ load .env file -----------------*/
 
@@ -18,7 +18,7 @@ import type { ProcessEnvType } from '../types/config';
 
 const NODE_ENV = process.env.NODE_ENV;
 
-if (!nodeEnvValues.includes(NODE_ENV)) {
+if (!NODE_ENV || !nodeEnvValues.includes(NODE_ENV as ProcessEnvType['NODE_ENV'])) {
   // eslint-disable-next-line no-console
   console.error('Invalid process.env.NODE_ENV: ', NODE_ENV);
   throw new Error('Invalid process.env.NODE_ENV');
@@ -29,8 +29,8 @@ dotenv.config({ path: envFileName });
 
 /*------------------ validate processEnvData -----------------*/
 
-const processEnvData: ProcessEnvType = {
-  NODE_ENV: process.env.NODE_ENV,
+const processEnvData = {
+  NODE_ENV: NODE_ENV,
   PREVIEW_MODE: process.env.PREVIEW_MODE,
   SITE_URL: process.env.SITE_URL,
   PLAUSIBLE_SCRIPT_URL: process.env.PLAUSIBLE_SCRIPT_URL,
@@ -43,7 +43,7 @@ export const PROCESS_ENV = validateData(processEnvData, processEnvSchema);
 
 /*------------------ experimental.env.schema -----------------*/
 
-export const envSchema = {
+export const astroEnvSchema = {
   schema: {
     // server
     NODE_ENV: envField.string({

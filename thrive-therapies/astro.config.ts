@@ -22,10 +22,6 @@ export default defineConfig({
     },
   },
 
-  /**
-   * @property {string} site - 网站的最终部署 URL。
-   * Astro 会用这个 URL 来生成站点地图、规范链接 (canonical URLs) 和其他绝对链接。
-   */
   site: PROCESS_ENV.SITE_URL,
   trailingSlash: "ignore",
   env: astroEnvSchema,
@@ -36,14 +32,11 @@ export default defineConfig({
 
   integrations: [
     react({
-      // 配置React集成，使用外部模式减少客户端JS体积
       include: ["**/*.tsx"],
     }),
     icon({ iconDir: "./src/assets/icons" }),
     partytown({ config: { forward: ["dataLayer.push"] } }),
-    expressiveCodeIntegration(),
     sitemapIntegration(),
-    mdx(),
     astroFont(),
   ],
   vite: {
@@ -84,20 +77,8 @@ export default defineConfig({
     },
 
     plugins: [
-      tailwindcss(),
-      paraglideVitePlugin({
-        project: "./project.inlang",
-        outdir: "./src/paraglide",
-        // Configure locale detection strategy for SSG mode
-        strategy: [
-          "url", // Primary: URL-based detection (essential for SSG)
-          "localStorage", // User preference storage
-          "baseLocale", // Fallback to default locale
-        ],
-        // Disable AsyncLocalStorage for static builds
-        disableAsyncLocalStorage: true,
-      }),
-    ],
+      tailwindcss()
+],
   },
   output: "static",
 });

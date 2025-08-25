@@ -9,20 +9,16 @@
     "streetsidesoftware.code-spell-checker",
     "stylelint.vscode-stylelint",
     "unifiedjs.vscode-mdx",
-    "xyc.vscode-mdx-preview",
     "yoavbls.pretty-ts-errors",
 
     "aaron-bond.better-comments",
-    "akmarnafi.comment-headers",
     "jeremyljackson.vs-docblock",
-    "tyriar.lorem-ipsum",
 
     "mhutchie.git-graph",
     "eamodio.gitlens",
     "mikestead.dotenv",
 
-    "nick-rudenko.back-n-forth",
-    "ryu1kn.partial-diff"
+    "nick-rudenko.back-n-forth"
   ],
   "unwantedRecommendations": []
 }

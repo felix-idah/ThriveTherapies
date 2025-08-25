@@ -4,9 +4,9 @@ import { envField } from 'astro/config';
 import dotenv from 'dotenv';
 
 import { nodeEnvValues, processEnvSchema } from '../schemas/config.js';
-import { prettyPrintObject } from '../utils/system/log.js';
-import { getHostnameFromUrl } from '../utils/routing/urls.js';
 import { validateData } from '../utils/data/validation.js';
+import { getHostnameFromUrl } from '../utils/routing/urls.js';
+import { prettyPrintObject } from '../utils/system/log.js';
 
 import type { ProcessEnvType } from '@/types/config';
 

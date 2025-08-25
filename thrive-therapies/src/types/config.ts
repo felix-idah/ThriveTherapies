@@ -1,9 +1,5 @@
-import type { z } from "zod";
-import type {
-  configClientSchema,
-  configServerSchema,
-  processEnvSchema,
-} from "@/schemas/config";
+import type { configClientSchema, configServerSchema, processEnvSchema } from '@/schemas/config';
+import type { z } from 'zod';
 
 type ConfigServerSchemaType = typeof configServerSchema;
 type ConfigServerType = z.infer<ConfigServerSchemaType>;

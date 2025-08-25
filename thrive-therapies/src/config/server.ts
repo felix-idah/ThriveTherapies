@@ -2,8 +2,8 @@ import { NODE_ENV as NODE_ENV_STRING, PREVIEW_MODE } from 'astro:env/server';
 
 import { configServerSchema } from '@/schemas/config';
 import { CONFIG_CLIENT } from '@/config/client';
-import { prettyPrintObject } from '@/utils/system/log';
 import { validateData } from '@/utils/data/validation';
+import { prettyPrintObject } from '@/utils/system/log';
 
 import type { ConfigServerType } from '@/types/config';
 

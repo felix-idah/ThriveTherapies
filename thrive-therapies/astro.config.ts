@@ -1,29 +1,30 @@
 // @ts-check
-import { defineConfig } from "astro/config";
-import react from "@astrojs/react";
-import icon from "astro-icon";
-import tailwindcss from "@tailwindcss/vite";
-import { astroFont } from "astro-font/integration";
+import partytown from '@astrojs/partytown';
+import react from '@astrojs/react';
+import { astroFont } from 'astro-font/integration';
+import icon from 'astro-icon';
+import { defineConfig } from 'astro/config';
 
-import { sitemapIntegration } from "./src/libs/integrations/sitemap";
-import { PROCESS_ENV, astroEnvSchema } from "./src/config/process-env";
+import tailwindcss from '@tailwindcss/vite';
 
-import partytown from "@astrojs/partytown";
+import { astroEnvSchema, PROCESS_ENV } from './src/config/process-env';
+import { sitemapIntegration } from './src/libs/integrations/sitemap';
 
+const { SITE_URL } = PROCESS_ENV;
 
 export default defineConfig({
   server: {
-    port: 4321,
+    port: SITE_URL,
     // develop mode, disable cache
     headers: {
-      "Cache-Control": "no-store, max-age=0, must-revalidate",
-      Pragma: "no-cache",
-      Expires: "0",
+      'Cache-Control': 'no-store, max-age=0, must-revalidate',
+      Pragma: 'no-cache',
+      Expires: '0',
     },
   },
 
   site: PROCESS_ENV.SITE_URL,
-  trailingSlash: "ignore",
+  trailingSlash: 'ignore',
   env: astroEnvSchema,
   compressHTML: true,
   devToolbar: { enabled: false },
@@ -32,10 +33,10 @@ export default defineConfig({
 
   integrations: [
     react({
-      include: ["**/*.tsx"],
+      include: ['**/*.tsx'],
     }),
-    icon({ iconDir: "./src/assets/icons" }),
-    partytown({ config: { forward: ["dataLayer.push"] } }),
+    icon({ iconDir: './src/assets/icons' }),
+    partytown({ config: { forward: ['dataLayer.push'] } }),
     sitemapIntegration(),
   ],
   vite: {
@@ -44,7 +45,7 @@ export default defineConfig({
     },
 
     server: {
-      allowedHosts: ["localhost", "thrive-therapies.com"],
+      allowedHosts: ['localhost', 'thrive-therapies.com'],
       // develop mode, hot module replacement
       hmr: true,
     },
@@ -54,32 +55,26 @@ export default defineConfig({
       force: true,
     },
 
-    
     resolve: {
       alias: {
-        "@/assets": "/src/assets",
-        "@/components": "/src/components",
-        "@/modules": "/src/modules",
-        "@/constants": "/src/constants",
-        "@/content": "/src/content",
-        "@/layouts": "/src/layouts",
-        "@/features": "/src/features",
-        "@/libs": "/src/libs",
-        "@/pages": "/src/pages",
-        "@/schemas": "/src/schemas",
-        "@/styles": "/src/styles",
-        "@/types": "/src/types",
-        "@/utils": "/src/utils",
-        "@/config": "/src/config",
-        "@/scripts": "/src/scripts",
+        '@/assets': '/src/assets',
+        '@/components': '/src/components',
+        '@/modules': '/src/modules',
+        '@/constants': '/src/constants',
+        '@/content': '/src/content',
+        '@/layouts': '/src/layouts',
+        '@/features': '/src/features',
+        '@/libs': '/src/libs',
+        '@/pages': '/src/pages',
+        '@/schemas': '/src/schemas',
+        '@/styles': '/src/styles',
+        '@/types': '/src/types',
+        '@/utils': '/src/utils',
+        '@/config': '/src/config',
+        '@/scripts': '/src/scripts',
       },
     },
-    plugins: [
-      tailwindcss() as any,
-      astroFont() as any,
-    ],
-
-
+    plugins: [tailwindcss() as any, astroFont() as any],
   },
-  output: "static",
+  output: 'static',
 });

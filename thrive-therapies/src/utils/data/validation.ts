@@ -1,9 +1,7 @@
-import { z, ZodType, ZodError } from "zod";
+import { z, ZodError, ZodType } from 'zod';
 
 const zodErrorToString = (error: ZodError): string => {
-  return error.issues
-    .map((issue) => `${issue.path.join(".")}: ${issue.message}`)
-    .join(", ");
+  return error.issues.map((issue) => `${issue.path.join('.')}: ${issue.message}`).join(', ');
 };
 
 const validateData = <T extends ZodType<any>>(config: unknown, schema: T): z.infer<T> => {

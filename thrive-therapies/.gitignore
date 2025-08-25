@@ -26,5 +26,3 @@ pnpm-debug.log*
 
 # cursor
 .cursor/
-
-.DS_Store

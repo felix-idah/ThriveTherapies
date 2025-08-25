@@ -1,0 +1,45 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+interface Props extends HTMLAttributes<'svg'> {
+  color?: string;
+  size?: number | string;
+}
+
+const { class: className, ...rest } = Astro.props;
+---
+
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 128 128"
+  width="1em"
+  height="1em"
+  class:list={[className]}
+  {...rest}
+>
+  <g clip-path="url(#clip0_5_406)">
+    <path
+      d="M4.5 21.748V4.5C4.5 2.42893 6.17892 0.75 8.25 0.75C10.3211 0.75 12 2.42893 12 4.5V19.5C12 21.5711 13.6789 23.25 15.75 23.25C17.8211 23.25 19.5 21.5711 19.5 19.5V2.248"
+      stroke="currentColor"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"></path>
+    <path
+      d="M15.75 5.99805L19.5 2.24805L23.25 5.99805"
+      stroke="currentColor"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"></path>
+    <path
+      d="M8.25 17.998L4.5 21.748L0.75 17.998"
+      stroke="currentColor"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"></path>
+  </g>
+  <defs>
+    <clipPath id="clip0_5_406">
+      <rect width="24" height="24" fill="white"></rect>
+    </clipPath>
+  </defs>
+</svg>

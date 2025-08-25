@@ -1,0 +1,77 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+interface Props extends HTMLAttributes<'svg'> {
+  color?: string;
+  size?: number | string;
+}
+
+const { class: className, ...rest } = Astro.props;
+---
+
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 128 128"
+  width="1em"
+  height="1em"
+  class:list={[className]}
+  {...rest}
+>
+  <g clip-path="url(#clip0_5_430)">
+    <path
+      d="M6.62012 5.13232L17.3811 8.47279"
+      stroke="currentColor"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"></path>
+    <path
+      d="M6.43359 16.5278L17.2856 19.8966"
+      stroke="currentColor"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"></path>
+    <path
+      d="M6.37109 13.7923L17.5651 10.6714"
+      stroke="currentColor"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"></path>
+    <path
+      fill-rule="evenodd"
+      clip-rule="evenodd"
+      d="M3.75 7.16861C5.40685 7.16861 6.75 5.85821 6.75 4.24177C6.75 2.62533 5.40685 1.31494 3.75 1.31494C2.09315 1.31494 0.75 2.62533 0.75 4.24177C0.75 5.85821 2.09315 7.16861 3.75 7.16861Z"
+      stroke="currentColor"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"></path>
+    <path
+      fill-rule="evenodd"
+      clip-rule="evenodd"
+      d="M3.75 18.1442C5.40685 18.1442 6.75 16.8338 6.75 15.2174C6.75 13.6009 5.40685 12.2905 3.75 12.2905C2.09315 12.2905 0.75 13.6009 0.75 15.2174C0.75 16.8338 2.09315 18.1442 3.75 18.1442Z"
+      stroke="currentColor"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"></path>
+    <path
+      fill-rule="evenodd"
+      clip-rule="evenodd"
+      d="M20.25 12.2907C21.9068 12.2907 23.25 10.9803 23.25 9.36384C23.25 7.74741 21.9068 6.43701 20.25 6.43701C18.5932 6.43701 17.25 7.74741 17.25 9.36384C17.25 10.9803 18.5932 12.2907 20.25 12.2907Z"
+      stroke="currentColor"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"></path>
+    <path
+      fill-rule="evenodd"
+      clip-rule="evenodd"
+      d="M20.25 23.2663C21.9068 23.2663 23.25 21.9559 23.25 20.3394C23.25 18.723 21.9068 17.4126 20.25 17.4126C18.5932 17.4126 17.25 18.723 17.25 20.3394C17.25 21.9559 18.5932 23.2663 20.25 23.2663Z"
+      stroke="currentColor"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"></path>
+  </g>
+  <defs>
+    <clipPath id="clip0_5_430">
+      <rect width="24" height="24" fill="white"></rect>
+    </clipPath>
+  </defs>
+</svg>

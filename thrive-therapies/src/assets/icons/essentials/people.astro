@@ -1,0 +1,40 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+interface Props extends HTMLAttributes<'svg'> {
+  color?: string;
+  size?: number | string;
+}
+
+const { class: className, ...rest } = Astro.props;
+---
+
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 128 128"
+  width="1em"
+  height="1em"
+  class:list={[className]}
+  {...rest}
+>
+  <path
+    d="M7.47559 3.33398C9.11794 5.03803 11.383 6.00049 13.7496 5.99998C14.9359 6.00032 16.1098 5.75873 17.1996 5.28998"
+    stroke="currentColor"
+    stroke-width="1.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"></path>
+  <path
+    fill-rule="evenodd"
+    clip-rule="evenodd"
+    d="M12 11.25C14.8995 11.25 17.25 8.89949 17.25 6C17.25 3.10051 14.8995 0.75 12 0.75C9.10051 0.75 6.75 3.10051 6.75 6C6.75 8.89949 9.10051 11.25 12 11.25Z"
+    stroke="currentColor"
+    stroke-width="1.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"></path>
+  <path
+    d="M2.25 23.25C2.25 17.8652 6.61522 13.5 12 13.5C17.3848 13.5 21.75 17.8652 21.75 23.25"
+    stroke="currentColor"
+    stroke-width="1.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"></path>
+</svg>

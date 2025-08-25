@@ -1,0 +1,77 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+interface Props extends HTMLAttributes<'svg'> {
+  color?: string;
+  size?: number | string;
+}
+
+const { class: className, ...rest } = Astro.props;
+---
+
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 24 24"
+  width="1em"
+  height="1em"
+  class:list={[className]}
+  {...rest}
+>
+  <g clip-path="url(#clip0_5_410)">
+    <path
+      d="M15.75 9.75H23.25"
+      stroke="currentColor"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"></path>
+    <path
+      d="M15.75 3.75H23.25"
+      stroke="currentColor"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"></path>
+    <path
+      fill-rule="evenodd"
+      clip-rule="evenodd"
+      d="M15.75 1.65C15.75 1.15294 16.153 0.75 16.65 0.75H22.35C22.847 0.75 23.25 1.15294 23.25 1.65V11.85C23.25 12.347 22.847 12.75 22.35 12.75H16.65C16.153 12.75 15.75 12.347 15.75 11.85V1.65Z"
+      stroke="currentColor"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"></path>
+    <path
+      d="M0.75 8.25H12.75"
+      stroke="currentColor"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"></path>
+    <path
+      d="M12.75 3.75H2.25C1.42157 3.75 0.75 4.42157 0.75 5.25V21.75C0.75 22.5784 1.42157 23.25 2.25 23.25H20.25C21.0784 23.25 21.75 22.5784 21.75 21.75V15.75"
+      stroke="currentColor"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"></path>
+    <path
+      d="M6.46094 12C6.66806 12 6.83594 12.1679 6.83594 12.375C6.83594 12.5821 6.66806 12.75 6.46094 12.75C6.25382 12.75 6.08594 12.5821 6.08594 12.375C6.08594 12.1679 6.25382 12 6.46094 12Z"
+      stroke="currentColor"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"></path>
+    <path
+      d="M17.9995 20.25L14.1295 14.413C13.9923 14.2066 13.762 14.0815 13.5142 14.0787C13.2664 14.0759 13.0333 14.1958 12.8915 14.399L10.8995 17.25L9.65946 16.261C9.4953 16.1299 9.28368 16.0737 9.07614 16.106C8.86854 16.1383 8.68404 16.2562 8.56746 16.431L6.02148 20.25"
+      stroke="currentColor"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"></path>
+    <path
+      d="M4.5 20.25H18"
+      stroke="currentColor"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"></path>
+  </g>
+  <defs>
+    <clipPath id="clip0_5_410">
+      <rect width="24" height="24" fill="white"></rect>
+    </clipPath>
+  </defs>
+</svg>

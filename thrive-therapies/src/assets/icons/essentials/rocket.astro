@@ -1,0 +1,52 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+interface Props extends HTMLAttributes<'svg'> {
+  color?: string;
+  size?: number | string;
+}
+
+const { class: className, ...rest } = Astro.props;
+---
+
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 128 128"
+  width="1em"
+  height="1em"
+  class:list={[className]}
+  {...rest}
+>
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path
+      fill-rule="evenodd"
+      clip-rule="evenodd"
+      d="M6.06073 13.7651L2.43872 12.5571C2.1921 12.4752 2.00555 12.2713 1.94584 12.0184C1.88612 11.7654 1.96178 11.4996 2.14573 11.3161L2.37772 11.0841C3.9846 9.47692 6.36163 8.91556 8.51773 9.63412L9.77275 10.0521L6.06073 13.7651Z"
+      stroke="currentColor"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"></path>
+    <path
+      fill-rule="evenodd"
+      clip-rule="evenodd"
+      d="M10.3008 18.0073L11.5088 21.6293C11.5907 21.8759 11.7946 22.0625 12.0475 22.1222C12.3005 22.1819 12.5663 22.1062 12.7498 21.9223L12.9828 21.6903C14.5896 20.0832 15.1506 17.7062 14.4318 15.5503L14.0158 14.3003L10.3008 18.0073Z"
+      stroke="currentColor"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"></path>
+    <path
+      d="M7.77929 18.5384C7.78007 19.1353 7.54295 19.7079 7.12031 20.1294C6.24233 21.0074 1.82031 22.2504 1.82031 22.2504C1.82031 22.2504 3.06331 17.8254 3.94131 16.9504C4.327 16.5638 4.84035 16.3309 5.38531 16.2954"
+      stroke="currentColor"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"></path>
+    <path
+      fill-rule="evenodd"
+      clip-rule="evenodd"
+      d="M22.5005 1.56689L20.3425 1.80689C18.6499 1.99502 17.0717 2.75362 15.8675 3.95789L6.06055 13.7649L10.3006 18.0069L20.1095 8.19988C21.3142 6.99598 22.0729 5.41765 22.2605 3.72489L22.5005 1.56689Z"
+      stroke="currentColor"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"></path>
+  </svg>
+</svg>

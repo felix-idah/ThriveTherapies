@@ -12,7 +12,7 @@ module.exports = {
   overrides: [
     {
       files: ['**/*.astro'],
-      options: { parser: 'astro' },
+      options: { parser: 'astro', printWidth: 100, tabWidth: 2 },
     },
   ],
   importOrderParserPlugins: ['typescript', 'jsx', 'decorators-legacy'],

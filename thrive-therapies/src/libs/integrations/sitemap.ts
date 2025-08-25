@@ -15,9 +15,12 @@ export const sitemapIntegration = () =>
       if (item.url.endsWith(SITE_URL)) {
         item.priority = 1.0;
         // google can access it with '/'
-      } else if (item.url.endsWith(`${SITE_URL}${ROUTES.BLOG}`)) {
-        item.changefreq = 'daily' as ChangeFreqEnum;
-        item.priority = 0.9;
+      } else if (item.url.endsWith(`${SITE_URL}${ROUTES.ABOUT}`)) {
+        item.changefreq = 'monthly' as ChangeFreqEnum;
+        item.priority = 0.8;
+      } else if (item.url.endsWith(`${SITE_URL}${ROUTES.CONTACT}`)) {
+        item.changefreq = 'monthly' as ChangeFreqEnum;
+        item.priority = 0.7;
       }
       return item;
     },

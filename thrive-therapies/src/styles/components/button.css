@@ -1,0 +1,36 @@
+/* Button Component Styles */
+@layer components {
+  /* Custom button variants that extend the base Button component */
+  .btn-primary {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground hover:bg-secondary/80;
+  }
+
+  .btn-outline {
+    @apply border border-input bg-background hover:bg-accent hover:text-accent-foreground;
+  }
+
+  .btn-ghost {
+    @apply hover:bg-accent hover:text-accent-foreground;
+  }
+
+  .btn-link {
+    @apply text-primary underline-offset-4 hover:underline;
+  }
+
+  /* Button sizes */
+  .btn-sm {
+    @apply h-8 rounded-md px-3 text-sm;
+  }
+
+  .btn-lg {
+    @apply h-10 rounded-md px-6;
+  }
+
+  .btn-icon {
+    @apply h-9 w-9;
+  }
+}

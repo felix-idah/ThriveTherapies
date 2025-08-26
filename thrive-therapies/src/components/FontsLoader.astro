@@ -1,0 +1,48 @@
+---
+import { join } from 'node:path';
+
+import { AstroFont } from 'astro-font';
+---
+
+<AstroFont
+  config={[
+    {
+      name: 'Poppins',
+      src: [
+        {
+          weight: '400',
+          style: 'normal',
+          path: join(process.cwd(), 'public', 'fonts', 'poppins', 'Poppins-Regular.woff2'),
+        },
+        {
+          weight: '600',
+          style: 'normal',
+          path: join(process.cwd(), 'public', 'fonts', 'poppins', 'Poppins-SemiBold.woff2'),
+        },
+      ],
+      preload: true,
+      display: 'fallback',
+      selector: 'body, .font-poppins, .font-sans',
+      fallback: 'sans-serif',
+    },
+    {
+      name: 'Work Sans',
+      src: [
+        {
+          weight: '200',
+          style: 'normal',
+          path: join(process.cwd(), 'public', 'fonts', 'work-sans', 'WorkSans-ExtraLight.woff2'),
+        },
+        {
+          weight: '700',
+          style: 'normal',
+          path: join(process.cwd(), 'public', 'fonts', 'work-sans', 'WorkSans-Bold.woff2'),
+        },
+      ],
+      preload: true,
+      display: 'fallback',
+      selector: '.font-work-sans, .font-heading',
+      fallback: 'sans-serif',
+    },
+  ]}
+/>

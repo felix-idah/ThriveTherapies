@@ -1,0 +1,32 @@
+/* Responsive Breakpoints */
+@theme inline {
+  /* Breakpoints */
+  --breakpoint-mobile: 375px;
+  --breakpoint-tablet: 768px;
+  --breakpoint-desktop: 1024px;
+  --breakpoint-desktop-hd: 1440px;
+
+  /* Container max-widths */
+  --container-mobile: 343px; /* 375px - 32px (16px each side) */
+  --container-tablet: 704px; /* 768px - 64px (32px each side) */
+  --container-desktop: 960px; /* 1024px - 64px (32px each side) */
+  --container-desktop-hd: 1376px; /* 1440px - 64px (32px each side) */
+
+  /* Grid columns */
+  --grid-columns-mobile: 2;
+  --grid-columns-tablet: 6;
+  --grid-columns-desktop: 12;
+  --grid-columns-desktop-hd: 12;
+
+  /* Gutters */
+  --gutter-mobile: 16px;
+  --gutter-tablet: 32px;
+  --gutter-desktop: 32px;
+  --gutter-desktop-hd: 32px;
+
+  /* Column widths (calculated) */
+  --column-width-mobile: 163.5px; /* (343 - 1×16) / 2 = 163.5px */
+  --column-width-tablet: 88px; /* (704 - 5×32) / 6 = 90.67px ≈ 88px */
+  --column-width-desktop: 64px; /* (960 - 11×32) / 12 = 50.67px ≈ 64px */
+  --column-width-desktop-hd: 85px; /* (1376 - 11×32) / 12 = 85.33px ≈ 85px */
+}

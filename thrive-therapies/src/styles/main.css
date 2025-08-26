@@ -15,9 +15,12 @@
 /* Base styles */
 @import './base/reset.css';
 @import './base/typography.css';
+@import './base/breakpoints.css';
+@import './base/spacing.css';
 
 /* Utilities */
 @import './utilities/font-families.css';
+@import './utilities/layout.css';
 
 /* Component styles */
 @import './components/button.css';

@@ -1,0 +1,95 @@
+/* Layout Utilities */
+@layer utilities {
+  /* Container utilities */
+  .container-mobile {
+    max-width: var(--container-mobile);
+    margin: 0 auto;
+    padding: 0 var(--gutter-mobile);
+  }
+
+  .container-tablet {
+    max-width: var(--container-tablet);
+    margin: 0 auto;
+    padding: 0 var(--gutter-tablet);
+  }
+
+  .container-desktop {
+    max-width: var(--container-desktop);
+    margin: 0 auto;
+    padding: 0 var(--gutter-desktop);
+  }
+
+  .container-desktop-hd {
+    max-width: var(--container-desktop-hd);
+    margin: 0 auto;
+    padding: 0 var(--gutter-desktop-hd);
+  }
+
+  /* Responsive container */
+  .container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 var(--gutter-mobile);
+  }
+
+  @media (min-width: 768px) {
+    .container {
+      max-width: var(--container-tablet);
+      padding: 0 var(--gutter-tablet);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      max-width: var(--container-desktop);
+      padding: 0 var(--gutter-desktop);
+    }
+  }
+
+  @media (min-width: 1440px) {
+    .container {
+      max-width: var(--container-desktop-hd);
+      padding: 0 var(--gutter-desktop-hd);
+    }
+  }
+
+  /* Grid utilities */
+  .grid-mobile {
+    display: grid;
+    grid-template-columns: repeat(var(--grid-columns-mobile), 1fr);
+    gap: var(--gutter-mobile);
+  }
+
+  .grid-tablet {
+    display: grid;
+    grid-template-columns: repeat(var(--grid-columns-tablet), 1fr);
+    gap: var(--gutter-tablet);
+  }
+
+  .grid-desktop {
+    display: grid;
+    grid-template-columns: repeat(var(--grid-columns-desktop), 1fr);
+    gap: var(--gutter-desktop);
+  }
+
+  /* Responsive grid */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(var(--grid-columns-mobile), 1fr);
+    gap: var(--gutter-mobile);
+  }
+
+  @media (min-width: 768px) {
+    .grid {
+      grid-template-columns: repeat(var(--grid-columns-tablet), 1fr);
+      gap: var(--gutter-tablet);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .grid {
+      grid-template-columns: repeat(var(--grid-columns-desktop), 1fr);
+      gap: var(--gutter-desktop);
+    }
+  }
+}

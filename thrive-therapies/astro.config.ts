@@ -1,4 +1,3 @@
-// @ts-check
 import partytown from '@astrojs/partytown';
 import react from '@astrojs/react';
 import { astroFont } from 'astro-font/integration';
@@ -13,17 +12,7 @@ import { sitemapIntegration } from './src/libs/integrations/sitemap';
 const { SITE_URL } = PROCESS_ENV;
 
 export default defineConfig({
-  server: {
-    port: SITE_URL,
-    // develop mode, disable cache
-    headers: {
-      'Cache-Control': 'no-store, max-age=0, must-revalidate',
-      Pragma: 'no-cache',
-      Expires: '0',
-    },
-  },
-
-  site: PROCESS_ENV.SITE_URL,
+  site: SITE_URL,
   trailingSlash: 'ignore',
   env: astroEnvSchema,
   compressHTML: true,
@@ -74,7 +63,11 @@ export default defineConfig({
         '@/scripts': '/src/scripts',
       },
     },
-    plugins: [tailwindcss() as any, astroFont() as any],
+    plugins: [
+      // @ts-expect-error
+      tailwindcss(),
+      astroFont(),
+    ],
   },
   output: 'static',
 });

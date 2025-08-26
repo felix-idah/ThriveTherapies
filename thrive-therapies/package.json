@@ -71,6 +71,7 @@
     "serve": "^14.2.4",
     "tailwind-clip-path": "^1.0.0",
     "tailwindcss-animate": "^1.0.7",
-    "typescript": "^5.9.2"
+    "typescript": "^5.9.2",
+    "vite": "^7.1.3"
   }
 }

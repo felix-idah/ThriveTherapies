@@ -1,0 +1,22 @@
+/* Font Family Utilities */
+@layer utilities {
+  .font-poppins {
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .font-work-sans {
+    font-family: 'Work Sans', sans-serif;
+  }
+
+  .font-heading {
+    font-family: 'Work Sans', sans-serif;
+  }
+
+  .font-body {
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .font-display {
+    font-family: 'Work Sans', sans-serif;
+  }
+}

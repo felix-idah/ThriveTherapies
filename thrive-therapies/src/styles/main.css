@@ -14,6 +14,10 @@
 
 /* Base styles */
 @import './base/reset.css';
+@import './base/typography.css';
+
+/* Utilities */
+@import './utilities/font-families.css';
 
 /* Component styles */
 @import './components/button.css';

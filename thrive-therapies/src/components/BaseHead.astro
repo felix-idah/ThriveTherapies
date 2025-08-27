@@ -18,7 +18,7 @@ export interface BaseHeadProps {
   metadata: Metadata;
 }
 
-// set defualt metadata in this component
+// set default metadata in this component
 const { metadata } = Astro.props as BaseHeadProps;
 
 // site: SITE_URL var + '/'
@@ -121,8 +121,12 @@ const ogImageUrl = new URL(image, url);
     )
   }
 
-  <ClientRouter fallback="none" />
+  {/* View Transition API */}
+  <ClientRouter />
   <FontsLoader />
+
+  {/* Page transition scripts */}
+  <script src="/src/scripts/page-transitions.ts" is:inline></script>
 
   <!-- 
     <style>

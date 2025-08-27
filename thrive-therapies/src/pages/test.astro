@@ -1,0 +1,77 @@
+---
+import Base from '@/layouts/Base.astro';
+
+const { metadata } = Astro.props;
+---
+
+<Base metadata={{ ...metadata, title: 'Thrive Therapies' }}>
+  <div class="container mx-auto py-16">
+    <!-- Hero Section with Animation -->
+    <section class="text-center mb-16">
+      <h1 class="heading-1 mb-6" data-animate="fadeInUp" data-delay="100">
+        Welcome to Thrive Therapies
+      </h1>
+      <p class="lead-paragraph mb-8" data-animate="fadeInUp" data-delay="200">
+        Smarter tools. Better care.
+      </p>
+      <div class="flex gap-4 justify-center" data-animate="fadeInUp" data-delay="300">
+        <button class="btn-primary">Get Started</button>
+        <button class="btn-outline">Learn More</button>
+      </div>
+    </section>
+
+    <!-- Parallax Background Section -->
+    <section class="parallax-container h-96 mb-16 relative">
+      <div
+        class="parallax-element absolute inset-0 bg-gradient-to-r from-primary to-secondary opacity-20"
+        data-parallax="0.5"
+      >
+      </div>
+      <div class="relative z-10 flex items-center justify-center h-full">
+        <h2 class="heading-2 text-center" data-animate="scaleIn">Experience the Difference</h2>
+      </div>
+    </section>
+
+    <!-- Features Grid with Staggered Animation -->
+    <section class="grid md:grid-cols-3 gap-8 mb-16">
+      <div class="text-center p-6 rounded-lg border" data-animate="fadeInUp" data-delay="100">
+        <h3 class="heading-4 mb-4">AI-Powered Tools</h3>
+        <p class="body-normal">Advanced technology for better outcomes</p>
+      </div>
+      <div class="text-center p-6 rounded-lg border" data-animate="fadeInUp" data-delay="200">
+        <h3 class="heading-4 mb-4">Expert Care</h3>
+        <p class="body-normal">Professional therapists and clinicians</p>
+      </div>
+      <div class="text-center p-6 rounded-lg border" data-animate="fadeInUp" data-delay="300">
+        <h3 class="heading-4 mb-4">Proven Results</h3>
+        <p class="body-normal">Evidence-based treatment approaches</p>
+      </div>
+    </section>
+
+    <!-- Smooth Scroll Navigation -->
+    <section class="text-center mb-16">
+      <h2 class="heading-2 mb-8" data-animate="fadeIn">Quick Navigation</h2>
+      <div class="flex gap-4 justify-center">
+        <a href="#services" class="btn-outline">Services</a>
+        <a href="#about" class="btn-outline">About</a>
+        <a href="#contact" class="btn-outline">Contact</a>
+      </div>
+    </section>
+
+    <!-- Target Sections for Smooth Scroll -->
+    <section id="services" class="py-16 border-t">
+      <h2 class="heading-2 text-center mb-8" data-animate="slideInLeft">Our Services</h2>
+      <p class="body-large text-center">Comprehensive therapy solutions for all ages</p>
+    </section>
+
+    <section id="about" class="py-16 border-t">
+      <h2 class="heading-2 text-center mb-8" data-animate="slideInRight">About Us</h2>
+      <p class="body-large text-center">Dedicated to improving lives through innovative therapy</p>
+    </section>
+
+    <section id="contact" class="py-16 border-t">
+      <h2 class="heading-2 text-center mb-8" data-animate="bounceIn">Contact Us</h2>
+      <p class="body-large text-center">Get in touch to learn more about our services</p>
+    </section>
+  </div>
+</Base>

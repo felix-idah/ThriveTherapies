@@ -45,6 +45,18 @@
   --input: oklch(0.922 0 0);
   --ring: oklch(0.708 0 0);
 
+  /* Button hover colors */
+  --primary-hover: oklch(28.89% 0.037 295.7);
+  --secondary-btn: oklch(96.2% 0.002 286.3);
+  --secondary-hover: oklch(98.32% 0.016 101.1);
+  --outline: oklch(1 0 0);
+  --outline-hover: oklch(0.922 0 0);
+  --ghost: oklch(1 0 0 / 0%);
+  --ghost-hover: oklch(1 0 0 / 0%);
+  --link: oklch(1 0 0 / 0);
+  --link-hover: oklch(1 0 0 / 0%);
+  --disabled: oklch(57.28% 0.071 297.4);
+
   /* Chart colors */
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);

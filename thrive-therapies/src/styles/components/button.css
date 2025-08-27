@@ -1,36 +1,82 @@
-/* Button Component Styles */
+/* Button Component Styles - Design System Compliant */
 @layer components {
-  /* Custom button variants that extend the base Button component */
+  /* Button base styles */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md font-medium transition-all duration-200 disabled:pointer-events-none disabled:opacity-50 outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2;
+  }
+
+  /* Button variants following design system colors */
   .btn-primary {
-    @apply bg-primary text-primary-foreground hover:bg-primary/90;
+    @apply bg-primary text-white hover:bg-primary-hover;
   }
 
   .btn-secondary {
-    @apply bg-secondary text-secondary-foreground hover:bg-secondary/80;
+    @apply bg-secondary-btn text-primary hover:bg-secondary-hover;
   }
 
   .btn-outline {
-    @apply border border-input bg-background hover:bg-accent hover:text-accent-foreground;
+    @apply border border-primary bg-outline hover:bg-outline-hover text-primary;
   }
 
   .btn-ghost {
-    @apply hover:bg-accent hover:text-accent-foreground;
+    @apply hover:bg-ghost-hover text-primary;
   }
 
   .btn-link {
-    @apply text-primary underline-offset-4 hover:underline;
+    @apply text-primary underline-offset-4 hover:underline p-0 h-auto;
   }
 
-  /* Button sizes */
+  /* Button sizes following design system specifications */
   .btn-sm {
-    @apply h-8 rounded-md px-3 text-sm;
+    @apply px-6 py-3 text-sm;
+  }
+
+  .btn-md {
+    @apply px-8 py-3.5 text-base;
   }
 
   .btn-lg {
-    @apply h-10 rounded-md px-6;
+    @apply px-12 py-4 text-lg;
   }
 
-  .btn-icon {
-    @apply h-9 w-9;
+  /* Icon positioning */
+  .btn-icon-left {
+    @apply flex-row;
+  }
+
+  .btn-icon-right {
+    @apply flex-row-reverse;
+  }
+
+  .btn-icon-only {
+    @apply px-2.5;
+  }
+
+  /* Loading state */
+  .btn-loading {
+    @apply cursor-not-allowed;
+  }
+
+  /* Disabled state */
+  .btn-disabled {
+    @apply cursor-not-allowed opacity-50 pointer-events-none;
+  }
+
+  /* Focus states */
+  .btn:focus-visible {
+    @apply ring-2 ring-[#3A3A5C] ring-offset-2;
+  }
+
+  /* Icon styling within buttons */
+  .btn svg {
+    @apply w-4 h-4 flex-shrink-0;
+  }
+
+  .btn-sm svg {
+    @apply w-3.5 h-3.5;
+  }
+
+  .btn-lg svg {
+    @apply w-5 h-5;
   }
 }

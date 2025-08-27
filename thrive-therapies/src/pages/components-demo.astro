@@ -1,0 +1,129 @@
+---
+import Base from '@/layouts/Base.astro';
+---
+
+<Base metadata={{ title: 'Components Demo - Thrive Therapies' }}>
+  <div class="container mx-auto py-16">
+    <h1 class="heading-1 text-center mb-12">Button & Link Components Demo</h1>
+
+    <!-- Button Sizes Demo -->
+    <section class="mb-16">
+      <h2 class="heading-2 mb-8">Button Sizes</h2>
+
+      <!-- Small Buttons -->
+      <div class="mb-8">
+        <h3 class="heading-4 mb-4">Small (12px vertical, 24px horizontal, 14px font)</h3>
+        <div class="flex gap-4 items-center flex-wrap">
+          <button class="btn btn-primary btn-sm">Small</button>
+          <button class="btn btn-default btn-sm">Small</button>
+          <button class="btn btn-primary btn-sm">Small →</button>
+          <button class="btn btn-default btn-sm">← Small</button>
+        </div>
+      </div>
+
+      <!-- Medium Buttons -->
+      <div class="mb-8">
+        <h3 class="heading-4 mb-4">Medium (14px vertical, 32px horizontal, 16px font)</h3>
+        <div class="flex gap-4 items-center flex-wrap">
+          <button class="btn btn-primary btn-md">Medium</button>
+          <button class="btn btn-default btn-md">Medium</button>
+          <button class="btn btn-primary btn-md">Medium →</button>
+          <button class="btn btn-default btn-md">← Medium</button>
+        </div>
+      </div>
+
+      <!-- Large Buttons -->
+      <div class="mb-8">
+        <h3 class="heading-4 mb-4">Large (16px vertical, 48px horizontal, 18px font)</h3>
+        <div class="flex gap-4 items-center flex-wrap">
+          <button class="btn btn-primary btn-lg">Large</button>
+          <button class="btn btn-default btn-lg">Large</button>
+          <button class="btn btn-primary btn-lg">Large →</button>
+          <button class="btn btn-default btn-lg">← Large</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Button Variants Demo -->
+    <section class="mb-16">
+      <h2 class="heading-2 mb-8">Button Variants</h2>
+      <div class="flex gap-4 items-center flex-wrap">
+        <button class="btn btn-primary">Primary</button>
+        <button class="btn btn-default">Default</button>
+        <button class="btn btn-outline">Outline</button>
+        <button class="btn btn-ghost">Ghost</button>
+        <button class="btn btn-link">Link</button>
+      </div>
+    </section>
+
+    <!-- Button States Demo -->
+    <section class="mb-16">
+      <h2 class="heading-2 mb-8">Button States</h2>
+      <div class="flex gap-4 items-center flex-wrap">
+        <button class="btn btn-primary">Normal</button>
+        <button class="btn btn-primary btn-loading" disabled>Loading...</button>
+        <button class="btn btn-primary btn-disabled" disabled>Disabled</button>
+      </div>
+    </section>
+
+    <!-- Link Component Demo -->
+    <section class="mb-16">
+      <h2 class="heading-2 mb-8">Link Components (styled as buttons)</h2>
+      <div class="flex gap-4 items-center flex-wrap">
+        <a href="#" class="btn btn-primary">Primary Link</a>
+        <a href="#" class="btn btn-default">Default Link</a>
+        <a href="#" class="btn btn-outline">Outline Link</a>
+        <a href="#" class="btn btn-link">Text Link</a>
+        <a
+          href="https://example.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-default"
+        >
+          External Link ↗
+        </a>
+      </div>
+    </section>
+
+    <!-- Color Reference -->
+    <section>
+      <h2 class="heading-2 mb-8">Design System Colors</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="p-4 bg-[#3A3A5C] text-white rounded-md">
+          <div class="font-mono text-sm">#3A3A5C</div>
+          <div class="text-sm">Primary</div>
+        </div>
+        <div class="p-4 bg-[#F2F2F5] text-[#3A3A3C] border border-[#E0E0E3] rounded-md">
+          <div class="font-mono text-sm">#F2F2F5</div>
+          <div class="text-sm">Default BG</div>
+        </div>
+        <div class="p-4 bg-white text-[#3A3A3C] border border-[#E0E0E3] rounded-md">
+          <div class="font-mono text-sm">#3A3A3C</div>
+          <div class="text-sm">Text Color</div>
+        </div>
+        <div class="p-4 bg-white border-2 border-[#E0E0E3] text-[#3A3A3C] rounded-md">
+          <div class="font-mono text-sm">#E0E0E3</div>
+          <div class="text-sm">Border</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- React Components Example -->
+    <section class="mt-16">
+      <h2 class="heading-2 mb-8">React Components (Interactive)</h2>
+      <div id="react-demo"></div>
+      <script>
+        // Simple demo showing React components can be used
+        import { Button } from '@/components/react/components/ui/Button';
+        import { Link } from '@/components/react/components/ui/Link';
+
+        // This would be rendered via a separate React app or island
+        document.getElementById('react-demo').innerHTML = `
+          <div class="flex gap-4 items-center flex-wrap">
+            <p class="text-gray-600">React components available for interactive features</p>
+          </div>
+        `;
+      </script>
+    </section>
+  </div>
+</Base>

@@ -2,9 +2,7 @@
 import { Icon } from 'astro-icon/components';
 import { Image } from 'astro:assets';
 
-import HeaderLink from '@/components/HeaderLink.astro';
-import ThemeToggle from '@/components/ThemeToggle.astro';
-import { SELECTORS } from '@/constants/dom';
+import HeaderLink from '@/components/ui/HeaderLink.astro';
 import { IMAGE_SIZES } from '@/constants/image';
 import { NAVIGATION_ITEMS } from '@/constants/navigation';
 import { ROUTES } from '@/constants/routes';
@@ -14,8 +12,6 @@ import { cn } from '@/utils/ui/styles';
 
 import Avatar from '@/assets/images/avatar.jpg';
 
-const { SCROLL_TO_TOP_ID } = SELECTORS;
-
 const { pathname: routePathname } = Astro.url;
 const activeNavItemPath = getActiveNavItemPath(routePathname);
 
@@ -23,7 +19,7 @@ const activeNavItemPath = getActiveNavItemPath(routePathname);
 // group-[.menu-open]:flex-col md:!flex-row, both on flex-direction
 ---
 
-<header id={SCROLL_TO_TOP_ID} class="group border-b border-base-300">
+<header id="main-header" class="group border-b border-base-300">
   <div
     class={cn(
       'flex gap-2',
@@ -71,16 +67,14 @@ const activeNavItemPath = getActiveNavItemPath(routePathname);
               <HeaderLink
                 href={path}
                 isActive={path === activeNavItemPath}
-                {...(path === ROUTES.LINKS ? { 'data-astro-reload': true } : {})}
+                // TODO: hard reload for some routes, brand color for different product lines, language switch...etc
+                // {...(path === ROUTES.xxx ? { 'data-astro-reload': true } : {})}
               >
                 {title}
               </HeaderLink>
             </li>
           ))
         }
-        <li class="shrink-0">
-          <ThemeToggle />
-        </li>
       </ul>
     </nav>
   </div>

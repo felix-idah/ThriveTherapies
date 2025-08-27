@@ -13,7 +13,7 @@ const buttonVariants = cva('btn', {
   variants: {
     variant: {
       [BUTTON_VARIANTS.PRIMARY]: 'btn-primary',
-      [BUTTON_VARIANTS.DEFAULT]: 'btn-default',
+      [BUTTON_VARIANTS.SECONDARY]: 'btn-secondary',
       [BUTTON_VARIANTS.OUTLINE]: 'btn-outline',
       [BUTTON_VARIANTS.GHOST]: 'btn-ghost',
       [BUTTON_VARIANTS.LINK]: 'btn-link',

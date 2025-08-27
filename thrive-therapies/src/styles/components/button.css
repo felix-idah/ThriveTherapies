@@ -28,11 +28,11 @@
 
   /* Button sizes following design system specifications */
   .btn-sm {
-    @apply px-6 py-3 text-sm;
+    @apply px-6 py-2 text-sm;
   }
 
   .btn-md {
-    @apply px-8 py-3.5 text-base;
+    @apply px-8 py-3 text-base;
   }
 
   .btn-lg {

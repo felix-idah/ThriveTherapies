@@ -1,0 +1,182 @@
+---
+import { cva } from 'class-variance-authority';
+
+import { BUTTON_SIZES, BUTTON_VARIANTS, ICON_POSITIONS } from '@/constants/button';
+import { cn } from '@/utils/ui/styles';
+
+import type { ButtonSize, ButtonVariant, IconPosition } from '@/constants/button';
+import type { HTMLAttributes } from 'astro/types';
+
+export interface Props extends Omit<HTMLAttributes<'a'>, 'class' | 'size'> {
+  variant?: ButtonVariant;
+  size?: ButtonSize;
+  iconPosition?: IconPosition;
+  external?: boolean;
+  href?: string;
+  class?: string;
+  showExternalIcon?: boolean;
+}
+
+const {
+  variant = BUTTON_VARIANTS.LINK,
+  size = BUTTON_SIZES.MEDIUM,
+  iconPosition,
+  external = false,
+  href,
+  class: className,
+  showExternalIcon = false,
+  ...props
+} = Astro.props;
+
+const linkVariants = cva('btn', {
+  variants: {
+    variant: {
+      [BUTTON_VARIANTS.PRIMARY]: 'btn-primary',
+      [BUTTON_VARIANTS.SECONDARY]: 'btn-secondary',
+      [BUTTON_VARIANTS.OUTLINE]: 'btn-outline',
+      [BUTTON_VARIANTS.GHOST]: 'btn-ghost',
+      [BUTTON_VARIANTS.LINK]: 'btn-link',
+    },
+    size: {
+      [BUTTON_SIZES.SMALL]: 'btn-sm',
+      [BUTTON_SIZES.MEDIUM]: 'btn-md',
+      [BUTTON_SIZES.LARGE]: 'btn-lg',
+    },
+    iconPosition: {
+      [ICON_POSITIONS.LEFT]: 'btn-icon-left',
+      [ICON_POSITIONS.RIGHT]: 'btn-icon-right',
+      [ICON_POSITIONS.ONLY]: 'btn-icon-only',
+    },
+  },
+  defaultVariants: {
+    variant: BUTTON_VARIANTS.LINK,
+    size: BUTTON_SIZES.MEDIUM,
+  },
+});
+
+const isIconOnly = iconPosition === ICON_POSITIONS.ONLY;
+const hasLeftIcon = iconPosition === ICON_POSITIONS.LEFT;
+const hasRightIcon = iconPosition === ICON_POSITIONS.RIGHT;
+
+const externalProps = external
+  ? {
+      target: '_blank',
+      rel: 'noopener noreferrer',
+    }
+  : {};
+
+const linkClasses = cn(
+  linkVariants({
+    variant,
+    size,
+    iconPosition,
+  }),
+  className
+);
+
+const shouldShowExternalIcon = external && showExternalIcon && !iconPosition;
+
+const elementProps = {
+  class: linkClasses,
+  href,
+  ...externalProps,
+  ...props,
+};
+---
+
+<a {...elementProps}>
+  <!-- Left Icon -->
+  {
+    hasLeftIcon && (
+      <slot name="icon">
+        <span class="btn-icon btn-icon-left">
+          <slot name="leftIcon" />
+        </span>
+      </slot>
+    )
+  }
+
+  <!-- Link Content -->
+  {
+    !isIconOnly && (
+      <span class="btn-content">
+        <slot />
+      </span>
+    )
+  }
+
+  <!-- Icon Only Content -->
+  {
+    isIconOnly && (
+      <slot name="icon">
+        <span class="btn-icon btn-icon-only">
+          <slot />
+        </span>
+      </slot>
+    )
+  }
+
+  <!-- Right Icon -->
+  {
+    hasRightIcon && (
+      <slot name="rightIcon">
+        <span class="btn-icon btn-icon-right">
+          <slot name="rightIcon" />
+        </span>
+      </slot>
+    )
+  }
+
+  <!-- External Link Icon -->
+  {
+    shouldShowExternalIcon && (
+      <span class="btn-icon btn-icon-external" aria-label="Opens in new tab">
+        <svg
+          class="w-4 h-4"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+          />
+        </svg>
+      </span>
+    )
+  }
+</a>
+
+<style>
+  .btn-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .btn-content {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .btn-icon-external {
+    margin-left: var(--space-xs);
+    opacity: 0.7;
+  }
+
+  a:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+
+  a:hover .btn-icon-external {
+    opacity: 1;
+    transform: translateX(1px) translateY(-1px);
+    transition: all 0.2s ease-in-out;
+  }
+</style>

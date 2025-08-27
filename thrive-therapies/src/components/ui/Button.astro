@@ -1,0 +1,208 @@
+---
+import { cva } from 'class-variance-authority';
+
+import { BUTTON_SIZES, BUTTON_VARIANTS, ICON_POSITIONS } from '@/constants/button';
+import { cn } from '@/utils/ui/styles';
+
+import type { ButtonSize, ButtonVariant, IconPosition } from '@/constants/button';
+import type { HTMLAttributes } from 'astro/types';
+
+import LoaderAlt from '@/assets/icons/loaders/loader-alt.astro';
+import LoaderCircle from '@/assets/icons/loaders/loader-circle.astro';
+import LoaderClock from '@/assets/icons/loaders/loader-clock.astro';
+
+type LoaderType = 'alt' | 'clock' | 'circle';
+
+export interface Props extends Omit<HTMLAttributes<'button'>, 'class' | 'size'> {
+  variant?: ButtonVariant;
+  size?: ButtonSize;
+  iconPosition?: IconPosition;
+  loading?: boolean;
+  loaderType?: LoaderType;
+  disabled?: boolean;
+  class?: string;
+  asChild?: boolean;
+  as?: string;
+  cursor?: 'pointer' | 'default';
+}
+
+const {
+  variant = BUTTON_VARIANTS.PRIMARY,
+  size = BUTTON_SIZES.MEDIUM,
+  iconPosition,
+  loading = false,
+  loaderType = 'alt',
+  disabled = false,
+  class: className,
+  asChild = false,
+  as = 'button',
+  cursor = 'pointer',
+  ...props
+} = Astro.props;
+
+const buttonVariants = cva('btn', {
+  variants: {
+    variant: {
+      [BUTTON_VARIANTS.PRIMARY]: 'btn-primary',
+      [BUTTON_VARIANTS.SECONDARY]: 'btn-secondary',
+      [BUTTON_VARIANTS.OUTLINE]: 'btn-outline',
+      [BUTTON_VARIANTS.GHOST]: 'btn-ghost',
+      [BUTTON_VARIANTS.LINK]: 'btn-link',
+    },
+    size: {
+      [BUTTON_SIZES.SMALL]: 'btn-sm',
+      [BUTTON_SIZES.MEDIUM]: 'btn-md',
+      [BUTTON_SIZES.LARGE]: 'btn-lg',
+    },
+    iconPosition: {
+      [ICON_POSITIONS.LEFT]: 'btn-icon-left',
+      [ICON_POSITIONS.RIGHT]: 'btn-icon-right',
+      [ICON_POSITIONS.ONLY]: 'btn-icon-only',
+    },
+  },
+  defaultVariants: {
+    variant: BUTTON_VARIANTS.PRIMARY,
+    size: BUTTON_SIZES.MEDIUM,
+  },
+});
+
+const Element = asChild ? as : 'button';
+const isIconOnly = iconPosition === ICON_POSITIONS.ONLY;
+const hasLeftIcon = iconPosition === ICON_POSITIONS.LEFT;
+const hasRightIcon = iconPosition === ICON_POSITIONS.RIGHT;
+
+const isDisabled = disabled || loading;
+
+const buttonClasses = cn(
+  buttonVariants({
+    variant,
+    size,
+    iconPosition,
+  }),
+  className
+);
+
+const elementProps = {
+  class: buttonClasses,
+  disabled: Element === 'button' ? isDisabled : undefined,
+  'aria-disabled': Element !== 'button' ? isDisabled : undefined,
+  style: `cursor: ${cursor}`,
+  ...props,
+};
+---
+
+<Element {...elementProps}>
+  <!-- Loading Spinner -->
+  {
+    loading && (
+      <span class="btn-spinner" role="status" aria-label="Loading">
+        {loaderType === 'alt' && <LoaderAlt class="btn-loader animate-spin" />}
+        {loaderType === 'clock' && <LoaderClock class="btn-loader animate-spin" />}
+        {loaderType === 'circle' && <LoaderCircle class="btn-loader animate-spin" />}
+      </span>
+    )
+  }
+
+  <!-- Left Icon -->
+  {
+    !loading && hasLeftIcon && (
+      <slot name="icon">
+        <span class="btn-icon btn-icon-left">
+          <slot name="leftIcon" />
+        </span>
+      </slot>
+    )
+  }
+
+  <!-- Button Content -->
+  {
+    !isIconOnly && (
+      <span class="btn-content">
+        <slot />
+      </span>
+    )
+  }
+
+  <!-- Icon Only Content -->
+  {
+    isIconOnly && !loading && (
+      <slot name="icon">
+        <span class="btn-icon btn-icon-only">
+          <slot />
+        </span>
+      </slot>
+    )
+  }
+
+  <!-- Right Icon -->
+  {
+    !loading && hasRightIcon && (
+      <slot name="rightIcon">
+        <span class="btn-icon btn-icon-right">
+          <slot name="rightIcon" />
+        </span>
+      </slot>
+    )
+  }
+</Element>
+
+<style>
+  .btn-spinner {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .btn-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .btn-content {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .btn-loader {
+    width: 1rem;
+    height: 1rem;
+    display: inline-flex;
+  }
+
+  :global(.btn[disabled]) {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+
+  /* Custom animation */
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .animate-spin {
+    animation: spin 1s linear infinite;
+  }
+
+  /* Different loader animation speed */
+  .btn-loader.animate-spin {
+    animation: spin 1s linear infinite;
+  }
+
+  /* Clock loader more slower */
+  .btn-loader:global(.loader-clock) {
+    animation: spin 1.5s linear infinite;
+  }
+
+  /* Circle loader more faster */
+  .btn-loader:global(.loader-circle) {
+    animation: spin 0.8s linear infinite;
+  }
+</style>

@@ -1,0 +1,22 @@
+---
+import Link from '@/components/ui/Link.astro';
+import { BUTTON_VARIANTS } from '@/constants/button';
+import { cn } from '@/utils/ui/styles';
+
+export interface Props {
+  href?: string;
+  isActive?: boolean;
+  class?: string;
+}
+
+const { isActive = false, class: className, href, ...props } = Astro.props;
+---
+
+<Link
+  href={href}
+  variant={BUTTON_VARIANTS.LINK}
+  class={cn({ 'underline text-links': isActive }, className)}
+  {...props}
+>
+  <slot />
+</Link>

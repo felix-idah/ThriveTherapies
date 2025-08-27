@@ -1,0 +1,25 @@
+---
+import { Icon } from 'astro-icon/components';
+
+import BaseHead from '@/components/BaseHead.astro';
+import Footer from '@/components/ui/Footer.astro';
+import Header from '@/components/ui/Header.astro';
+import Breakpoints from '@/components/utils/breakpoints.astro';
+import { isProd } from '@/utils/system/environment';
+
+import type { BaseHeadProps } from '@/components/BaseHead.astro';
+
+export interface BaseProps extends BaseHeadProps {}
+
+const { metadata } = Astro.props as BaseProps;
+---
+
+<html lang="en">
+  <BaseHead metadata={metadata} />
+  <body class="">
+    <Header />
+    <slot />
+    <Footer />
+    {isProd && <Breakpoints />}
+  </body>
+</html>

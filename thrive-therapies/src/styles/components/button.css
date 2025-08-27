@@ -62,6 +62,8 @@
     @apply cursor-not-allowed opacity-50 pointer-events-none;
   }
 
+  /* TODO: https://www.figma.com/design/IlX2vCr9HJICl6CuDJ0WFR/Website_2.0?node-id=5-1020&t=vXYFg5I6nSoOKA7p-0 */
+
   /* Focus states */
   .btn:focus-visible {
     @apply ring-2 ring-[#3A3A5C] ring-offset-2;

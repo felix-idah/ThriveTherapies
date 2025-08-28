@@ -8,9 +8,23 @@
   --color-popover: var(--popover);
   --color-popover-foreground: var(--popover-foreground);
   --color-primary: var(--primary);
+  --color-primary-lily: var(--primary-lily);
+  --color-primary-darker: var(--primary-darker);
+  --color-primary-lighter: var(--primary-lighter);
   --color-primary-foreground: var(--primary-foreground);
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary-lemon: var(--secondary-lemon);
+  --color-secondary-fire: var(--secondary-fire);
+  --color-secondary-pear: var(--secondary-pear);
+  --color-dark: var(--dark);
+  --color-dark-secondary: var(--dark-secondary);
+  --color-dark-third: var(--dark-third);
+  --color-dark-fourth: var(--dark-fourth);
+  --color-light: var(--light);
+  --color-light-secondary: var(--light-secondary);
+  --color-light-third: var(--light-third);
+  --color-light-fourth: var(--light-fourth);
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
   --color-accent: var(--accent);
@@ -43,4 +57,7 @@
   --color-ghost-hover: var(--ghost-hover);
   --color-link: var(--link);
   --color-disabled: var(--disabled);
+
+  /* Navbar dividing line */
+  --color-navbar-divider: var(--navbar-divider);
 }

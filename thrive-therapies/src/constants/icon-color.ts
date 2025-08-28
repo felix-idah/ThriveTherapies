@@ -57,6 +57,11 @@ const LOADER_ICON_COLOR = {
   PRIMARY: '#865AD2',
 };
 
+/* ------------------------------ Logo ------------------------------ */
+const LOGO_ICON_COLOR = {
+  PRIMARY: '#FFFBDC',
+};
+
 export {
   ESSENTIALS_ICON_COLOR,
   COMPASS_ICON_COLOR,
@@ -64,4 +69,5 @@ export {
   MAPPING_STATE_ICON_COLOR,
   STATUS_ICON_COLOR,
   LOADER_ICON_COLOR,
+  LOGO_ICON_COLOR,
 };

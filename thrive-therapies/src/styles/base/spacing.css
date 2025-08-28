@@ -2,10 +2,12 @@
 @theme inline {
   /* Base spacing units */
   --spacing-1: 8px; /* 8px */
+  --spacing-1-5: 12px; /* 12px */
   --spacing-2: 16px; /* 16px */
   --spacing-3: 24px; /* 24px */
   --spacing-4: 32px; /* 32px */
   --spacing-5: 40px; /* 40px */
+  --spacing-5-5: 45px; /* 45px */
   --spacing-6: 48px; /* 48px */
   --spacing-7: 56px; /* 56px */
   --spacing-8: 64px; /* 64px */
@@ -14,15 +16,21 @@
   --spacing-11: 88px; /* 88px */
   --spacing-12: 96px; /* 96px */
   --spacing-16: 128px; /* 128px */
+  --spacing-17: 150px; /* 150px */
 
   /* Semantic spacing */
   --space-xs: var(--spacing-1); /* 8px */
+  --space-xs-lg: var(--spacing-1-5); /* 12px */
   --space-sm: var(--spacing-2); /* 16px */
   --space-md: var(--spacing-3); /* 24px */
   --space-lg: var(--spacing-4); /* 32px */
   --space-xl: var(--spacing-5); /* 40px */
+  --space-xl-lg: var(--spacing-5-5); /* 45px */
   --space-2xl: var(--spacing-6); /* 48px */
   --space-3xl: var(--spacing-8); /* 64px */
-  --space-4xl: var(--spacing-12); /* 96px */
+  --space-3xl-lg: var(--spacing-9); /* 72px */
+  --space-4xl: var(--spacing-10); /* 80px */
+  --space-4xl-lg: var(--spacing-12); /* 96px */
   --space-5xl: var(--spacing-16); /* 128px */
+  --space-6xl: var(--spacing-17); /* 150px */
 }

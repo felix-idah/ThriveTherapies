@@ -1,5 +1,13 @@
 /* Typography Base Styles */
 @layer base {
+  .font-work-sans {
+    font-family: 'Work Sans', sans-serif;
+  }
+
+  .font-poppins {
+    font-family: 'Poppins', sans-serif;
+  }
+
   /* Display Styles */
   .display-1 {
     font-family: 'Work Sans', sans-serif;

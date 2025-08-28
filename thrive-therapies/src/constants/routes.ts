@@ -9,6 +9,9 @@ const ROUTES = {
   SECURITY_COMPLIANCE: '/security-compliance/',
   COMPARE_TOOLS: '/compare-tools/',
   PRODUCT_SUPPORT: '/product-support/',
+  TOOLS: '/tools/',
+  SERVICES: '/services/',
+  OUR_PARTNERS: '/our-partners/',
   _404: '/404/',
   _500: '/500/',
   STATIC: {

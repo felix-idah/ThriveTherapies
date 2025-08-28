@@ -1,8 +1,34 @@
 ---
+import { Image } from 'astro:assets';
+
 import MainLayout from '@/layouts/MainLayout.astro';
 import { getPageMetadata } from '@/utils/content/metadata';
+
+import HomeHeroMobile from '@/assets/images/home-page/home-hero-mobile.png';
+import HomeHero from '@/assets/images/home-page/home-hero.jpg';
+
+// import HomeIntroCard1 from '@/assets/images/home-page/home-intro-card-1.jpg';
+// import HomeIntroCard2 from '@/assets/images/home-page/home-intro-card-2.jpg';
 
 const metadata = getPageMetadata('home');
 ---
 
-<MainLayout {metadata} />
+<MainLayout {metadata}>
+  <section id="home-hero" class="flex flex-col items-center justify-center h-screen">
+    <Image
+      src={HomeHero}
+      alt="Thrive Therapies - A smarter tool, better care"
+      class="w-full h-full object-cover hidden md:block"
+      format="webp"
+      quality={80}
+    />
+
+    <Image
+      src={HomeHeroMobile}
+      alt="Thrive Therapies - A smarter tool, better care"
+      class="w-full h-full object-cover md:hidden"
+      format="webp"
+      quality={80}
+    />
+  </section>
+</MainLayout>

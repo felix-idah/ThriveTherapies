@@ -18,7 +18,7 @@ const { pathname: routePathname } = Astro.url;
 const activeNavItemPath = getActiveNavItemPath(routePathname);
 ---
 
-<header id="main-header" class="fixed top-0 left-0 right-0 z-50 bg-background">
+<header id="main-header" class="fixed top-0 left-0 right-0 z-50 bg-transparent">
   <div
     class={cn('flex mx-[var(--space-6xl)] items-center justify-center min-h-[var(--space-4xl)]')}
   >
@@ -29,8 +29,12 @@ const activeNavItemPath = getActiveNavItemPath(routePathname);
 
     {/* nav items */}
     <nav aria-label="Site navigation" class="flex items-center justify-center">
-      <Link href="/" style={`color: ${LOGO_ICON_COLOR.PRIMARY}`} class="flex items-center">
-        <Logo color={LOGO_ICON_COLOR.PRIMARY} class="w-10 h-10" />
+      <Link
+        href="/"
+        style={`color: ${LOGO_ICON_COLOR.PRIMARY}`}
+        class="flex items-center !p-0 !m-0"
+      >
+        <Logo color={LOGO_ICON_COLOR.PRIMARY} />
       </Link>
     </nav>
 
@@ -40,7 +44,11 @@ const activeNavItemPath = getActiveNavItemPath(routePathname);
           <li>
             {/* TODO: hard reload for some routes, brand color for different product lines, language switch...etc */}
             {/* {...(path === ROUTES.xxx ? { 'data-astro-reload': true } : {})}} */}
-            <HeaderLink href={path} isActive={path === activeNavItemPath} class="!p-0 !m-0">
+            <HeaderLink
+              href={path}
+              isActive={path === activeNavItemPath}
+              class="!p-0 !m-0 text-secondary"
+            >
               {title}
             </HeaderLink>
           </li>

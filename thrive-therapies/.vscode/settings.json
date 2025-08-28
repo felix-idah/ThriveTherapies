@@ -1,16 +1,5 @@
 {
-  "editor.tabSize": 2,
-  "editor.detectIndentation": false,
-  // applies to search too
-  "files.exclude": {
-    "**/node_modules": true,
-    "**/dist": true,
-    "**/.astro": true
-  },
-  "search.exclude": {
-    "package-lock.json": true,
-    "yarn.lock": true
-  },
+  "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
   "prettier.requireConfig": false,
